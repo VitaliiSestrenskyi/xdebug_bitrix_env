@@ -1,1 +1,40 @@
+1. Разворачиваем вирутальную машину битрикса - http://www.1c-bitrix.ru/download/vmbitrix.php
+
+2. Переходим /etc/php.d/15-xdebug.ini и прописуем в файле:
+zend_extension=/usr/lib/php/modules/xdebug.so
+xdebug.remote_enable=on
+xdebug.remote_host=192.168.144.138
+xdebug.remote_port=9000
+xdebug.remote_connect_back=1
+
+Изначальнофайл 15-xdebug.ini есть в VM,  но если нет тогда:
+
+Установка xdebug:
+yum install php-pecl-xdebug
+
+После установки необходимо создать файл xdebug.ini в каталоге /etc/php.d:
+/etc/php.d/15-xdebug.ini
+
+3. Переходим в /etc/php.ini и прописуем:
+xdebug.default_enable=on
+xdebug.remote_enable=on
+xdebug.remote_autostart=on
+xdebug.remote_handler=dbgp
+xdebug.remote_host=192.168.144.138
+xdebug.remote_port=9000
+xdebug.remote_log="/tmp/xdebug_log.log"
+xdebug.profiler_output_dir="/tmp"
+
+4. Перезапускаем apache:
+server httpd restart
+
+5. Переходим в phpstorm и нажимаем Start Listening for PHP Debug Connections
+
+6. В конце проверяемой страницы будем дописовать ?DEBUG_SESSION_START=1
+
+
+
+
+
+
 
