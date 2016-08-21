@@ -28,9 +28,17 @@ xdebug.profiler_output_dir="/tmp"
 4. Перезапускаем apache:
 server httpd restart
 
-5. Переходим в phpstorm и нажимаем Start Listening for PHP Debug Connections
+5. Создаем сервер в phpstorm:
+Tools/Deployment/Configuration
+http://prntscr.com/c8ggk6
 
-6. В конце проверяемой страницы будем дописовать ?DEBUG_SESSION_START=1
+6. Настройки отладки xdebug в phpstorm:
+Run/Edit Configuirations/Defaults/PHP Web Application
+http://prntscr.com/c8ghdg
+
+7. Переходим в phpstorm и нажимаем Start Listening for PHP Debug Connections
+
+8. В конце проверяемой страницы будем дописовать ?DEBUG_SESSION_START=1
 
 
 
